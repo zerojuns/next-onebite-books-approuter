@@ -4,7 +4,9 @@ import style from "./layout.module.css";
 import { BookData } from "@/types";
 
 async function Footer(){
-  const reponse = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`);
+  const reponse = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`
+    ,{cache : "force-cache"}
+  );
   if(!reponse.ok){
     return <footer>제작 @interload</footer>
   }
